@@ -2,68 +2,64 @@ import React, { useState } from 'react'
 import InputFeildDesign from './InputFeildDesign'
 
 export default function FormDesign() {
-  const [inputValue, setInputvalue] = useState("")
-  const [email, setEmail] = useState("")
-  function changeHandler(e) {
-    console.log(e.target.value)
-    setInputvalue(e.target.value)
+  const [formSubmit, setformSubmit] = useState(" ")
+  function formSubmitHandler(e) {
+    e.preventDefault();
+    const formdata = new FormData(e.target)
+    console.log(formdata.get('fname'))
+    setformSubmit(`Fullname:${formdata.get('fname')}
+                   ${formdata.get('lname')
+                                  
+                }
+    `)
   }
-  console.log(inputValue)
   return (
+    <div className='d-flex'>
+      <div className='border ms-5' style={{ width: "40%" }}>
 
+        <form onSubmit={formSubmitHandler} >
+          <h5 className='text-decoration-underline text-secondary mb-4'>Registration Form:</h5>
 
-    <div>
+          <InputFeildDesign
+            label="FirstName:"
+            type="text"
+            name="fname"
+            id="fname"
+          />
 
-      <form style={{ width: "40%" }} className='container border'>
-        <h5 className='text-decoration-underline text-secondary mb-4'>Registration Form:</h5>
+          <InputFeildDesign
+            label="LastName:"
+            type="text"
+            name="lname"
+            id="lname"
+          />
 
-        <InputFeildDesign
-          label="FirstName:"
-          type="text"
-          name="fname"
-          id="fname"
-          onChange={changeHandler}
-          value={inputValue}
-        />
+          <InputFeildDesign
+            label="EmailId:"
+            type="email"
+            name="email"
+            id="email"
+          />
 
-        <InputFeildDesign
-          label="LastName:"
-          type="text"
-          name="lname"
-          id="lname"
-          onChange={changeHandler}
-          value={email}
-        />
-
-        <InputFeildDesign
-          label="EmailId:"
-          type="email"
-          name="email"
-          id="email"
-          onChange={changeHandler}
-          value={inputValue}
-        />
-
-        <InputFeildDesign
-          label="Password:"
-          type="password"
-          name="password"
-          id="password"
-          onChange={changeHandler}
-          value={inputValue}
-        />
-
-
-        <InputFeildDesign
-          label="Mobile Number:"
-          type="tel"
-          name="tel"
-          id="tel"
-          onChange={changeHandler}
-          value={inputValue}
-        />
-        <button type="submit" className="btn btn-primary">Submit</button>
-      </form>
+          <InputFeildDesign
+            label="Password:"
+            type="password"
+            name="password"
+            id="password"
+          />
+          <InputFeildDesign
+            label="Mobile Number:"
+            type="tel"
+            name="tel"
+            id="tel"
+          />
+          <button type="submit" className="btn btn-primary">Submit</button>
+        </form>
+        <p>{formSubmit}</p>
+      </div>
+      <div>
+        {formSubmit}
+      </div>
     </div>
   )
 }
