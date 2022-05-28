@@ -2,19 +2,48 @@ import React, { useState } from 'react'
 import InputFeildDesign from './InputFeildDesign'
 
 export default function FormDesign() {
-  const [inputValue, setInputvalue] = useState("")
+  const [fname, setFname] = useState("")
+  const [lname, setLname] = useState("")
   const [email, setEmail] = useState("")
-  function changeHandler(e) {
-    console.log(e.target.value)
-    setInputvalue(e.target.value)
+  const [password, setPassword] = useState("")
+  const [phone, setPhone] = useState("")
+  const [error, setError] = useState("")
+  const [formvalue,setFormvalue]=useState("")
+  
+  function changeHandler(){
+
   }
-  console.log(inputValue)
+  function fnamechangeHandler(e) {
+    console.log(e.target.value)
+    setFname(e.target.value)
+    if(e.target.value.length<5){
+      setError("First name is too small")
+    }
+    else{
+      setError("")
+    }
+  }
+
+  function lnamechangeHandler(e) {
+    console.log(e.target.value)
+    setLname(e.target.value)
+  }
+
+  function submitHandler(e){
+      e.preventDefault();
+      console.log(fname)
+      const formData=new FormData(e.target)
+      console.log(formData.get('fname'))
+    setFormvalue(formData.get('fname') + formData.get('lname'))
+
+  }
+  console.log(fname)
   return (
 
 
     <div>
 
-      <form style={{ width: "40%" }} className='container border'>
+      <form style={{ width: "40%" }} className='container border'onSubmit={submitHandler}>
         <h5 className='text-decoration-underline text-secondary mb-4'>Registration Form:</h5>
 
         <InputFeildDesign
@@ -22,8 +51,9 @@ export default function FormDesign() {
           type="text"
           name="fname"
           id="fname"
-          onChange={changeHandler}
-          value={inputValue}
+          onChange={fnamechangeHandler}
+          value={fname}
+          error={error}
         />
 
         <InputFeildDesign
@@ -31,8 +61,8 @@ export default function FormDesign() {
           type="text"
           name="lname"
           id="lname"
-          onChange={changeHandler}
-          value={email}
+          onChange={lnamechangeHandler}
+          value={lname}
         />
 
         <InputFeildDesign
@@ -41,7 +71,7 @@ export default function FormDesign() {
           name="email"
           id="email"
           onChange={changeHandler}
-          value={inputValue}
+          value={email}
         />
 
         <InputFeildDesign
@@ -50,7 +80,7 @@ export default function FormDesign() {
           name="password"
           id="password"
           onChange={changeHandler}
-          value={inputValue}
+          value={password}
         />
 
 
@@ -60,10 +90,13 @@ export default function FormDesign() {
           name="tel"
           id="tel"
           onChange={changeHandler}
-          value={inputValue}
+          value={phone}
         />
-        <button type="submit" className="btn btn-primary">Submit</button>
+        <button type="submit" className="btn btn-primary" >Submit</button>
       </form>
+    <p>{fname} {lname}</p>
+    <p>{formvalue}</p>
     </div>
+    
   )
 }
