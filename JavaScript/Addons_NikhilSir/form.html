@@ -1,0 +1,114 @@
+<html>
+<head>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <style>
+    #info{
+        height:300px;
+        width:300px;
+        font-size:20px;
+       
+        display:none;
+        margin-left:300px;
+    }
+</style>
+</head>
+<body>
+    <div class="container">
+    <form class="form" name="basicInfo">
+        <label>Name : </label>
+        <input class="form-control" type="text" onblur="blurFun()" onfocus="foucsFun()" name="name" id="name">
+        <span id="nameError"></span><br><br>
+        <label>Age : </label>
+        <input  class="form-control" type="text"  onblur="getFormData()"  name="age" id="age"><br>
+        <span id="ageError"></span><br><br>
+        <label>Email : </label>
+        <input  class="form-control" type="email" onblur="getFormData()" name="email" id="email" ><br>
+        <span id="emailError"></span><br><br>
+        <input   class="btn btn-primary"type="button" onclick="getFormData()" value="submit">
+    </form>
+</div>
+    <div id="info" class="card">
+
+    </div>
+<script>
+    function foucsFun()
+    {
+        var name=document.getElementById("name").value;
+        document.getElementById("name").value=name.toLowerCase();
+        console.log("On Foucs Called ...");
+    }
+    function blurFun()
+    {
+        var name=document.getElementById("name").value;
+        document.getElementById("name").value=name.toUpperCase();
+        console.log("On Blur Called ...");
+    }
+
+    function getFormData()
+    {
+        var name=document.getElementById('name');
+        var age=document.getElementById('age');
+        var email=document.getElementById('email');
+        var nameError=document.getElementById("nameError");
+        var emailError=document.getElementById("emailError");
+        var ageError=document.getElementById("ageError");
+        if(name.value=="" ||age.value==""||email.value=="")
+        {
+            if(name.value=="")
+            {
+            name.style.borderColor="#dc3545";
+            nameError.innerHTML="Name is Required ";
+            nameError.style.color="#dc3545";
+            }
+            else{
+                name.style.borderColor="#42ba96";
+            nameError.innerHTML="";
+            }
+         if(email.value=="")
+         {
+            email.style.borderColor="#dc3545";
+            emailError.innerHTML="Email is Required ";
+            emailError.style.color="#dc3545";
+         }
+        else
+            {
+                email.style.borderColor="#42ba96";
+                emailError.innerHTML="";
+            }
+            if(age.value=="")
+            {
+                age.style.borderColor="#dc3545";
+            ageError.innerHTML="Age is Required ";
+            ageError.style.color="#dc3545";
+            }
+            else
+            {
+                age.style.borderColor="#42ba96";
+                ageError.innerHTML="";
+            }
+           
+        }
+        else{
+
+           
+            email.style.borderColor="#42ba96";
+                emailError.innerHTML="";
+                age.style.borderColor="#42ba96";
+                ageError.innerHTML="";
+                name.style.borderColor="#42ba96";
+            nameError.innerHTML="";
+        document.getElementById("info").style.display="block";
+        document.getElementById("info").style.backgroundColor="blue";
+        }
+        //var name=document.forms['basicInfo']['name'].value;
+       
+        document.getElementById("info").innerHTML="<p>"+name.value+"</p>";
+      
+        document.getElementById("info").innerHTML+="<p>"+age.value+"</p>";
+        
+        document.getElementById("info").innerHTML+="<p>"+email.value+"</p>";
+    }
+</script>
+</body>
+</html>

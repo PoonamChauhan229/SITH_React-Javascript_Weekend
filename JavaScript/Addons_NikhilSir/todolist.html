@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todo List</title>
+    <style>
+        .design
+        {
+            text-decoration: line-through;
+            color:white;
+            background-color: green;
+        }
+    </style>
+</head>
+<body>
+    <label>hosting</label>
+    <input type="text" id="taskTitle" ><br><br>
+    <label>Task Date</label>
+    <input type="date" id="taskDate" ><br><br>
+    <label>Task Description</label>
+    <textarea type="text" id="taskDesc"  row="3"></textarea><br><br>
+    <input type="button" onclick="addTask()" value="Add Task "><br><br>
+    <div id="taskList">
+
+    </div>
+    <script>
+       var count=0;
+        function addTask()
+        {
+           
+            var taskDiv,taskTitle,taskDate,taskDesc;
+            taskTitle=document.getElementById("taskTitle").value;
+            taskDate=document.getElementById("taskDate").value;
+            taskDesc=document.getElementById("taskDesc").value;
+            if(taskTitle=="" || taskDesc==""|| taskDate=="")
+            {
+                alert("All Fileds are required ..");
+            }
+            else{
+                count++;
+                console.log(count);
+                taskDiv="<div id='task"+count+"'><input type='checkbox' id='check"+count+"' onchange='checkTask("+count+")'><span><b>"+taskTitle+"</b></span><input type='button' onclick='removeDiv("+count+")' value='X'><br><span>"+taskDate+"</span><br><pre>"+taskDesc+"</pre></div>";
+                document.getElementById("taskList").innerHTML+=taskDiv;
+
+                document.getElementById("taskTitle").value="";
+                document.getElementById("taskDate").value="";
+                document.getElementById("taskDesc").value="";
+            }
+            
+        }
+
+        function checkTask(id)
+        {
+            var checked=document.getElementById("check"+id).checked;
+            if(checked)
+            {
+               // document.getElementById("task"+id).style.textDecoration="line-through";
+                document.getElementById("task"+id).className="design";
+            }
+            else
+            {
+                //document.getElementById("task"+id).style.textDecoration="none";
+                document.getElementById("task"+id).className="";
+            }
+        }
+
+
+        function removeDiv(id)
+        {
+           // alert("function ..."+ id);
+           ans=confirm("You want to delete this ? ");
+           if(ans)
+           {
+                document.getElementById("task"+id).remove();
+           }
+
+        }
+    </script>
+</body>
+</html>

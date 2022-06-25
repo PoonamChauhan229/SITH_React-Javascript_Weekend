@@ -1,0 +1,60 @@
+<html>
+<head>
+</head>
+<body>
+    <form name="demo">
+        <label>Num1 :</label>
+        <input type="text" id="num1" value="" name="num1" ><br><br>
+        <label>Num2 :</label>
+        <input type="text" id="num2" name="num2" ><br><br>
+        <input type="button" onclick="add()" value="add">
+        <input type="button" onclick="sub()" value="sub">
+        <input type="button" onclick="mul()" value="mul">
+        <input type="button" onclick="div()" value="div"><br><br>
+        <label>ANS :</label>
+        <input type="text" name="ans" id="ans" ><br><br>
+    </form>
+<script>
+    function add()
+    {
+        var firstNum,secondNum;
+       // firstNum=parseInt(document.forms['demo']['num1'].value);
+        //secondNum=parseInt(document.forms['demo']['num2'].value);
+        firstNum=document.getElementById("num1").value;
+        secondNum=document.getElementById("num2").value;
+        document.getElementById("ans").value=parseInt(firstNum)+parseInt(secondNum)
+        //document.forms['demo']['ans'].value=firstNum+secondNum;
+    }
+    function sub()
+    {
+        var firstNum,secondNum;
+       // firstNum=parseInt(document.forms['demo']['num1'].value);
+        //secondNum=parseInt(document.forms['demo']['num2'].value);
+        firstNum=document.getElementById("num1").value;
+        secondNum=document.getElementById("num2").value;
+        document.getElementById("ans").value=parseInt(firstNum)-parseInt(secondNum)
+        //document.forms['demo']['ans'].value=firstNum+secondNum;
+    }
+    function div()
+    {
+        var firstNum,secondNum;
+       // firstNum=parseInt(document.forms['demo']['num1'].value);
+        //secondNum=parseInt(document.forms['demo']['num2'].value);
+        firstNum=document.getElementById("num1").value;
+        secondNum=document.getElementById("num2").value;
+        document.getElementById("ans").value=parseInt(firstNum)/parseInt(secondNum)
+        //document.forms['demo']['ans'].value=firstNum+secondNum;
+    }
+    function mul()
+    {
+        var firstNum,secondNum;
+       // firstNum=parseInt(document.forms['demo']['num1'].value);
+        //secondNum=parseInt(document.forms['demo']['num2'].value);
+        firstNum=document.getElementById("num1").value;
+        secondNum=document.getElementById("num2").value;
+        document.getElementById("ans").value=parseInt(firstNum)*parseInt(secondNum)
+        //document.forms['demo']['ans'].value=firstNum+secondNum;
+    }
+</script>
+</body>
+</html>

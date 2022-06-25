@@ -1,0 +1,27 @@
+<html>
+<head>
+</head>
+<body>
+<script>
+    var num=parseInt(prompt("Enter any number "));//6
+    var count=0;
+    i=1;
+    while(i<=num)//(1<=5)(2<=5)(3<=5)(4<=5)(5<=5)(6<=5)
+    {
+        if(num%i==0)//(5%1==0)(5%2==0)(5%3==0)(5%4==0)(5%5==0)
+        {
+            count++;//1,2
+        }
+        i++;//2,3,4,5,6
+    }
+    if(count==2)
+    {
+        document.write("Prime Number <br>");
+    }
+    else{
+        document.write("Non Prime Number <br>");
+    }
+
+</script>
+</body>
+</html>

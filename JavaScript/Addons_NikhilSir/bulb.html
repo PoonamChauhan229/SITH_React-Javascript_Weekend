@@ -1,0 +1,38 @@
+<html>
+    <head>
+
+    </head>
+    <body>
+        <img src="off.gif" height="250px" id="img" width="180px"/><br><br>
+        <input type="button" onclick="switchBlub()" value="Switch">
+        <!-- <input type="button" onclick="onBulb()" value="ON">
+        <input type="button" onclick="offBulb()" value="OFF"><br>
+        -->
+        <script> 
+            var count=1;
+            function switchBlub()
+            {
+                count=count+1;
+                console.log(count);
+                if(count%2==0)
+                {
+                    document.getElementById("img").src="on.gif";
+                }
+                else
+                {
+                    document.getElementById("img").src="off.gif";
+                }
+            }
+
+
+            // function onBulb()
+            // {
+            //     document.getElementById("img").src="on.gif";
+            // }
+            // function offBulb()
+            // {
+            //     document.getElementById("img").src="off.gif";
+            // }
+        </script>
+    </body>
+</html>

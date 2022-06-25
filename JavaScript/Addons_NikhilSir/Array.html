@@ -1,0 +1,41 @@
+<html>
+<head>
+</head>
+<body>
+<script>
+var num_array=[23,45,22,3,26];
+//access Array Element
+console.log(num_array[1])//45
+console.log(num_array.length)//length of array 5
+//add new element in  last index of array
+num_array.push(33);
+console.log(num_array);//(23,45,22,3,26,33)
+//add new elements fron start index
+num_array.unshift(67,34,12);
+console.log(num_array);//(23,45,22,3,26,33)
+//remove from last index
+num_array.pop();
+console.log(num_array)//(23,45,22,3,26)
+//remove from start index
+num_array.shift();
+console.log(num_array)//(34,12,23,45,22,3,26)
+
+//add or remove anywhere in array
+//splice(index,remove_count,new elment list)
+num_array.splice(2,0,55,66,77);
+
+
+console.log(num_array)//(45,22,3,26)
+//convert array to string
+console.log(num_array.toString());
+
+//join
+console.log(num_array.join("*"));
+
+console.log(num_array.slice(3,7));
+console.log(num_array.sort(function(a,b){return a-b}))
+names=["Nishant","Nikhil","Reema","Shruti","Dhruv","Ekta","Aishwarya"];
+console.log(names.sort());
+</script>
+</body>
+</html>

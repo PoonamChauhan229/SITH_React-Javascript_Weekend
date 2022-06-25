@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>STRING - JAVSCRIPT</title>
+</head>
+<body>
+    <script>
+        //var name=new String("John")
+        //var x=new String("John")
+       
+        var str="I Like JAVASCRIPT  Hey I am Learning JAVASCRIPT FROM SITH" ;
+        console.log(str);
+        //access String characters =>index
+        console.log(str[7])//J
+        //Length of string 
+        console.log(str.length);//18
+
+        //slice
+        console.log(str.slice(2,6))
+        //substring
+        var newstr=str.substring(7,17)
+        console.log("New String : ",newstr);
+    str1=str.replace(/javascript/ig,"PYTHON");
+    console.log(str1);
+
+name="  Nikhil  ";
+console.log(name.toUpperCase());
+console.log(name.toLowerCase());
+console.log(name.length);
+x=name.trim();
+console.log(x.length);
+console.log(x.charAt(3))
+words=str.split(/A/i);
+console.log(words);
+a=[1,2,4,5,6]
+console.log(a.toString())
+
+
+        // if(name===x)
+        // {
+        //     console.log("True");
+        // }
+        // else
+        // {
+        //     console.log("False");
+        // }
+
+
+
+
+    </script>
+</body>
+</html>

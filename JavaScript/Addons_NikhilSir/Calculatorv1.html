@@ -1,0 +1,144 @@
+<html>
+    <head>
+        <title>
+            Calculator -V1
+        </title>
+        <style>
+            .container
+            {
+                border:2px solid black;
+                width:230px;
+            }
+            .input
+            {
+                height: 60px;
+                width:220px;
+                font-size: 30px;
+                text-align: right;
+                margin-left: 5px;
+                margin-top: 10px;
+            }
+            .btn
+            {
+                height:40px;
+                width:40px;
+                padding-left:10px;
+                margin-left: 10px;
+                background-color: grey;
+                color:white;
+            }
+            .btn-danger
+            {
+                background-color:red;
+                color:white;
+            }
+            .btn-operator
+            {
+                background-color:black;
+                color:white;
+            }
+            .btn-ans
+            {
+                background-color:greenyellow;
+                color:black;
+            }
+
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <input type="text" value="0" id="input" class="input"><br><br>
+            <input type="button" class="btn" onclick="getVal('7')" value="7">
+            <input type="button" class="btn"  onclick="getVal('8')" value="8">
+            <input type="button" class="btn" onclick="getVal('9')" value="9">
+            <input type="button" class="btn btn-operator" onclick="mul('X')" value="X"><br><br>
+            <input type="button" class="btn"   onclick="getVal('4')" value="4">
+            <input type="button" class="btn" onclick="getVal('5')" value="5">
+            <input type="button" class="btn" onclick="getVal('6')" value="6">
+            <input type="button" class="btn btn-operator" onclick="sub('-')" value="-"><br><br>
+            <input type="button" class="btn" onclick="getVal('1')" value="1">
+            <input type="button" class="btn" onclick="getVal('2')" value="2">
+            <input type="button" class="btn" onclick="getVal('3')" value="3">
+            <input type="button" class="btn btn-operator" onclick="add('+')" value="+"><br><br>
+            <input type="button" class="btn" onclick="getVal('0')" value="0">
+            <input type="button" class="btn btn-ans" onclick="ans('=')" value="=">
+            <input type="button" class="btn btn-danger" onclick="Clear()" value="C">
+            <input type="button" class="btn btn-operator" onclick="div('/')" value="/"><br><br>
+
+        </div>
+        <script>
+            var firstNum,secondNum,op;
+            var currentInput=document.getElementById("input");
+            function getVal(num)
+            {
+                if(currentInput.value==0)
+                {
+                    currentInput.value=num;
+                } 
+                else{
+                    currentInput.value+=num;
+                }
+                console.log(num);
+            }
+            function add()
+            {
+                firstNum=currentInput.value;
+                currentInput.value=0;
+                op="+";
+                console.log("First Num ",firstNum);
+            }
+            function sub()
+            {
+                firstNum=currentInput.value;
+                currentInput.value=0;
+                op="-";
+                console.log("First Num ",firstNum);
+            }
+            function mul()
+            {
+                firstNum=currentInput.value;
+                currentInput.value=0;
+                op="*";
+                console.log("First Num ",firstNum);
+            }
+            function div()
+            {
+                firstNum=currentInput.value;
+                currentInput.value=0;
+                op="/";
+                console.log("First Num ",firstNum);
+            }
+            function ans()
+            {
+                secondNum=currentInput.value;
+                console.log("Second Num ",secondNum);
+                if(op=="+")
+                {
+                    currentInput.value=parseInt(firstNum)+parseInt(secondNum);
+                }
+                else if(op=="-")
+                {
+                    currentInput.value=parseInt(firstNum)-parseInt(secondNum);
+                }
+                else if(op=="*")
+                {
+                    currentInput.value=parseInt(firstNum)*parseInt(secondNum);
+                }
+                else if(op=="/")
+                {
+                    currentInput.value=parseInt(firstNum)/parseInt(secondNum);
+                }
+                else{
+                    alert("Please select Proper Operator");
+                    currentInput.value=0;
+                }
+                
+            }
+
+            function Clear()
+            {
+                currentInput.value=0;
+            }
+        </script>
+    </body>
+</html>
