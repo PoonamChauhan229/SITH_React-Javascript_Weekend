@@ -1,28 +1,25 @@
 import React,{useState} from 'react'
 
-export default function Tab({props,show,descClick}) { 
-  const [count,setCount]=useState(0)
-  const[displayeach,setDisplayeach]=useState("")
-  console.log(show)
+export default function Tab({props,show,descClick,indexclick}) { 
+  const [activeIndex,setactiveIndex]=useState("")
   
- 
-  // function descDisplay(){
-  //   setCount(count+1)
+  console.log(show)
 
-  //   if(count<2){
-  //     setDisplayeach(true)
-  //     setCount(count-1)
-  //   }
-  //   else{
-  //     setDisplayeach("")
-  //   }
-  // }
-  console.log(count)
-  console.log(displayeach)
+  function displayEach(){
+  setactiveIndex(
+    indexclick===0?true:false ||indexclick===1?true:false ||indexclick===2?true:false
+   
+    )
+
+  }
+  console.log(indexclick,activeIndex)
+  console.log(activeIndex)
+  
+  
   return (
     <div>
-        <div className='title' onClick={descClick}>{props.title} </div>
-      { show  ?<div className='desc'>{props.desc}</div>:null}
+        <div className='title' onClick={displayEach}>{props.title} </div>
+      { show|| show===activeIndex?<div className='desc'>{props.desc}</div>:null}
      
     </div>
     

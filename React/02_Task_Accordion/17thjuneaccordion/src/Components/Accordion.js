@@ -3,7 +3,7 @@ import Button from './Button'
 import Tab from './Tab'
 
 export default function Accordion({show,descClick}) {
-    
+  
     const data=[
         {title:"titleabc",desc:"descabc"},
         {title:"titledef",desc:"descdef"},
@@ -14,8 +14,11 @@ export default function Accordion({show,descClick}) {
   return (
     <div>
             {data.map((element,index)=>(
-                <Tab key={index}  props={element} show={show} descClick={descClick}/>
-            ))
+                <Tab key={index}  props={element} show={show} descClick={descClick}
+                indexclick={index}
+                />
+                
+                ))
         }
 {/*descClick={descClick} */}
     </div>
